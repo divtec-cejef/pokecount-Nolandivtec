@@ -26,9 +26,9 @@ let compteur = 0;
 const compteurEl = document.getElementById("compteur-el");
 
 
-// window.addEventListener("load", () => { // Attendre que la page soit chargée pour exécuter le code
-//     sauvegardeEl.textContent = localStorage.getItem("captures") || ""; // Charger les captures sauvegardées ou une chaîne vide
-// });
+window.addEventListener("load", () => { // Attendre que la page soit chargée pour exécuter le code
+    sauvegardeEl.textContent = localStorage.getItem("captures") || ""; // Charger les captures sauvegardées ou une chaîne vide
+});
 
 function capturer() {
     compteur += 1; // Incrémenter le compteur de 1
