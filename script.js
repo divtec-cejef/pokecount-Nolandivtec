@@ -50,5 +50,12 @@ function sauvegarder() {
     compteurEl.textContent = compteur;
 }
 
+function liberer() {
+    compteur = 0;
+    compteurEl.textContent = compteur;
+    compteurEl.style.color = "black";
+    sauvegardeEl.textContent = "";
+    localStorage.setItem("captures", null) ;
+}
 
 
