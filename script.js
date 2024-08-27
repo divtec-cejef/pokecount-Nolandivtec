@@ -1,4 +1,9 @@
+/**
+ * Fichier JavaScript pour l'application PokeCount.
+ * @author NJO
+ */
 
+"use strict";
 document.querySelector("h2").textContent = 20;
 document.getElementById("compteur-el").textContent = 0;
 // Sélectionner un élément <div> avec l'ID "main-content"
@@ -25,9 +30,13 @@ const sauvegarderBtn = document.getElementById("sauvegarder-btn");
 let compteur = 0;
 const compteurEl = document.getElementById("compteur-el");
 
-
 window.addEventListener("load", () => { // Attendre que la page soit chargée pour exécuter le code
-    sauvegardeEl.textContent = localStorage.getItem("captures") || ""; // Charger les captures sauvegardées ou une chaîne vide
+    const captures = localStorage.getItem("captures");
+    if (captures && captures !== "null") {
+        sauvegardeEl.innerHTML = captures; // Charger les captures sauvegardées
+    } else {
+        sauvegardeEl.innerHTML = "Mes captures : "; // Afficher "Mes captures :" si null
+    }
 });
 
 function capturer() {
@@ -44,9 +53,9 @@ function capturer() {
 
 function sauvegarder() {
     if (compteur > 0) {
-        let compteurStr = compteur + " Pokémons | ";
-        sauvegardeEl.textContent += compteurStr; // Ajouter la valeur actuelle du compteur
-        localStorage.setItem("captures", sauvegardeEl.textContent); // Sauvegarder les captures dans le localStorage
+        let compteurStr = `<li>${compteur} Pokémons</li>`;
+        sauvegardeEl.innerHTML += compteurStr; // Ajouter la valeur actuelle du compteur
+        localStorage.setItem("captures", sauvegardeEl.innerHTML); // Sauvegarder les captures dans le localStorage
         compteur = 0;
         compteurEl.style.color = "black";
         compteurEl.textContent = compteur;
@@ -57,8 +66,6 @@ function liberer() {
     compteur = 0;
     compteurEl.textContent = compteur;
     compteurEl.style.color = "black";
-    sauvegardeEl.textContent = "Mes captures : ";
-    localStorage.setItem("captures", null) ;
+    localStorage.setItem("captures", null);
+    sauvegardeEl.innerHTML = "Mes captures : ";
 }
-
-
