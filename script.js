@@ -44,7 +44,7 @@ function capturer() {
 
 function sauvegarder() {
     if (compteur > 0) {
-        let compteurStr = compteur + " Pokémons - ";
+        let compteurStr = compteur + " Pokémons | ";
         sauvegardeEl.textContent += compteurStr; // Ajouter la valeur actuelle du compteur
         localStorage.setItem("captures", sauvegardeEl.textContent); // Sauvegarder les captures dans le localStorage
         compteur = 0;
