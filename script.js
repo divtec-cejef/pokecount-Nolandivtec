@@ -57,7 +57,7 @@ function liberer() {
     compteur = 0;
     compteurEl.textContent = compteur;
     compteurEl.style.color = "black";
-    sauvegardeEl.textContent = "";
+    sauvegardeEl.textContent = "Mes captures : ";
     localStorage.setItem("captures", null) ;
 }
 
